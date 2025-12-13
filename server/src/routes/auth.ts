@@ -37,7 +37,14 @@ router.post('/signup', async (req, res) => {
             { expiresIn: '1d' },
             (err, token) => {
                 if (err) throw err;
-                res.json({ token });
+                res.json({
+                    token,
+                    user: {
+                        _id: user._id,
+                        name: user.name,
+                        email: user.email
+                    }
+                });
             }
         );
     } catch (err) {
@@ -72,7 +79,14 @@ router.post('/login', async (req, res) => {
             { expiresIn: '1d' },
             (err, token) => {
                 if (err) throw err;
-                res.json({ token });
+                res.json({
+                    token,
+                    user: {
+                        _id: user._id,
+                        name: user.name,
+                        email: user.email
+                    }
+                });
             }
         );
     } catch (err) {
