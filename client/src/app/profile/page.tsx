@@ -65,6 +65,7 @@ export default function Profile() {
                 {isEditing ? (
                   <input
                     type="text"
+                    aria-label="Name"
                     value={profile.name}
                     onChange={(e) => setProfile({ ...profile, name: e.target.value })}
                     className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-lg font-bold"
@@ -101,6 +102,7 @@ export default function Profile() {
                   {isEditing ? (
                     <input
                       type="text"
+                      aria-label='profile'
                       value={profile.location}
                       onChange={(e) => setProfile({ ...profile, location: e.target.value })}
                       className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
@@ -115,6 +117,7 @@ export default function Profile() {
                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                   {isEditing ? (
                     <textarea
+                      aria-label="Your Story"
                       rows={3}
                       value={profile.story}
                       onChange={(e) => setProfile({ ...profile, story: e.target.value })}
