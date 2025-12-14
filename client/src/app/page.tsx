@@ -3,6 +3,7 @@ import QuickAccessCard from '@/components/QuickAccessCard';
 import { Brain, MessageCircle, HeartHandshake, Briefcase, Video } from 'lucide-react';
 import * as motion from 'framer-motion/client';
 import { BubbleCursor } from '@/components/BubbleCursor';
+import FloatingLines from '@/components/FloatingLines';
 
 export default function Home() {
   const cards = [
@@ -47,13 +48,21 @@ export default function Home() {
     
     <div className="relative min-h-screen overflow-hidden bg-gray-50">
       {/* Animated Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-        <div className="absolute top-0 -right-4 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+      <div className="fixed inset-0 z-0 pointer-events-auto ">
+          <FloatingLines 
+             enabledWaves={['top', 'middle', 'bottom']}
+            //  linesGradient={['#A855F7', '#6366F1', '#EC4899']} 
+            //  animationSpeed={0.3}
+             lineDistance={[7,5,3]}
+             bendRadius={5.0}
+             lineCount={[6, 10, 12]} 
+             bendStrength={-1}
+            interactive={true}
+            parallax={true}
+          />
       </div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 pointer-events-none">
         {/* <BubbleCursor > */}
         <Hero />
         
@@ -90,8 +99,8 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <div className="bg-white/80 backdrop-blur-md py-16 relative overflow-hidden">
-           <div className="absolute inset-0 bg-gradient-to-r from-purple-50 to-indigo-50 opacity-50" />
+        <div className=" py-16 relative overflow-hidden pointer-events-auto">
+           <div className="absolute inset-0 " />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
