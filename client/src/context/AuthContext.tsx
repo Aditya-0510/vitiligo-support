@@ -28,7 +28,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const token = localStorage.getItem('token');
       if (token) {
         try {
-          const res = await fetch('http://localhost:5000/api/auth/profile', {
+          const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/profile`, {
             headers: {
               'x-auth-token': token,
             },

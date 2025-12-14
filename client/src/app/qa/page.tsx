@@ -24,7 +24,7 @@ export default function QAPage() {
     // Fetch posts from API (mocked for now if API not ready or CORS issues)
     const fetchPosts = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/posts');
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`);
         if (res.ok) {
           const data = await res.json();
           setPosts(data);

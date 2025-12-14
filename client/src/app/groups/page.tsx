@@ -20,7 +20,7 @@ export default function GroupsPage() {
     // Fetch groups from API (mocked for now)
     const fetchGroups = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/groups');
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/groups`);
         if (res.ok) {
           const data = await res.json();
           setGroups(data);
