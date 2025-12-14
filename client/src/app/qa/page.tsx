@@ -124,7 +124,8 @@ export default function QAPage() {
                     </div>
                   </div>
                   <div className="flex flex-col items-center space-y-1 text-gray-500">
-                    <button className="p-1 hover:text-blue-600">
+                    <button className="p-1 hover:text-blue-600"
+                      aria-label='vote'>
                       <ThumbsUp className="h-5 w-5" />
                     </button>
                     <span className="font-medium">{post.upvotes}</span>
