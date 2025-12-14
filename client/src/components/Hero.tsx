@@ -12,7 +12,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
+                className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl"
               >
                 <span className="block xl:inline">Embrace your skin,</span>{' '}
                 <span className="block text-purple-600 xl:inline">join our community.</span>
@@ -21,7 +21,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
+                className="mt-3 text-base text-gray-100 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
               >
                 A supportive space for people with vitiligo and their families. Connect with others, find resources, and share your journey.
               </motion.p>

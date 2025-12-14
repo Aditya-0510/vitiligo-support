@@ -2,14 +2,16 @@
 
 import Link from 'next/link';
 import { Search, User, Menu } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useAuth } from '@/context/AuthContext';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
+import GooeyNav from './GooeyNav';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, setUser, isAuthenticated } = useAuth();
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -17,52 +19,80 @@ const Navbar = () => {
     router.push('/');
   };
 
+  const guestNavItems = [
+    { label: 'Home', href: '/' },
+    { label: 'Resources', href: '/resources' },
+    { label: 'Q&A', href: '/qa' },
+    { label: 'Groups', href: '/groups' },
+    { label: 'Meet Others', href: '/connect' },
+  ];
+
+  const authNavItems = [
+    { label: 'Home', href: '/' },
+    { label: 'Dashboard', href: '/dashboard' },
+    { label: 'Groups', href: '/groups' },
+    { label: 'Profile', href: '/profile' },
+  ];
+
+  const navItems = isAuthenticated ? authNavItems : guestNavItems;
+
+  const activeIndex = useMemo(() => {
+    // Exact match first
+    const exactIndex = navItems.findIndex(item => item.href === pathname);
+    if (exactIndex !== -1) return exactIndex;
+    
+    // Partial match for sub-routes? (e.g. /groups/123 -> Groups)
+    // Only if href is not '/' to avoid matching everything to Home
+    const partialIndex = navItems.findIndex(item => item.href !== '/' && pathname.startsWith(item.href));
+    if (partialIndex !== -1) return partialIndex;
+
+    // Default to Home if it exists and pathname is '/'
+    if (pathname === '/') return navItems.findIndex(i => i.href === '/');
+    
+    return -1; 
+  }, [pathname, navItems]);
+
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className=" shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="shrink-0 flex items-center">
+            <Link href="/" className="shrink-0 flex items-center gap-2">
               <span className="text-2xl font-bold text-blue-600">VitiligoConnect</span>
             </Link>
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Home</Link>
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center space-x-4">
+            <GooeyNav 
+                items={navItems} 
+                initialActiveIndex={activeIndex}
+                className="mr-4"
+            />
             
             {isAuthenticated ? (
-              <>
-                 <Link href="/dashboard" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Dashboard</Link>
-                 <Link href="/groups" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Groups</Link>
-                 <Link href="/profile" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
-                  {user?.name || 'Profile'}
-                 </Link>
+              <div className="flex items-center space-x-4">
                  <button 
                   onClick={handleLogout}
                   className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
                  >
                   Logout
                  </button>
-              </>
+              </div>
             ) : (
-              <>
-                <Link href="/resources" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Resources</Link>
-                <Link href="/qa" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Q&A</Link>
-                <Link href="/groups" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Groups</Link>
-                <Link href="/connect" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Meet Others</Link>
-                <div className="flex items-center space-x-4 ml-4">
-                  <button className="p-2 text-gray-500 hover:text-blue-600">
-                    <Search className="h-5 w-5" />
-                  </button>
-                  <Link href="/login" className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">
-                    <User className="h-4 w-4" />
-                    <span>Join / Login</span>
-                  </Link>
-                </div>
-              </>
+              <div className="flex items-center space-x-4">
+                <button className="p-2 text-gray-500 hover:text-blue-600">
+                  <Search className="h-5 w-5" />
+                </button>
+                <Link href="/login" className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">
+                  <User className="h-4 w-4" />
+                  <span>Join / Login</span>
+                </Link>
+              </div>
             )}
           </div>
 
+          {/* Mobile menu button */}
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -78,31 +108,38 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link href="/" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">Home</Link>
-            
-            {isAuthenticated ? (
-               <>
-                <Link href="/dashboard" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">Dashboard</Link>
-                <Link href="/groups" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">Groups</Link>
-                <Link href="/profile" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">Profile</Link>
-                <button 
-                  onClick={handleLogout}
-                  className="block w-full text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition mt-4"
+             {navItems.map((item) => (
+                <Link 
+                    key={item.href}
+                    href={item.href} 
+                    className={`block px-3 py-2 rounded-md text-base font-medium ${pathname === item.href ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:text-blue-600'}`}
+                    onClick={() => setIsMenuOpen(false)}
                 >
-                  Logout
-                </button>
-               </>
-            ) : (
-              <>
-                <Link href="/resources" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">Resources</Link>
-                <Link href="/qa" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">Q&A</Link>
-                <Link href="/groups" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">Groups</Link>
-                <Link href="/connect" className="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">Meet Others</Link>
-                <Link href="/login" className="block w-full text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition mt-4">
-                  Join / Login
+                    {item.label}
                 </Link>
-              </>
-            )}
+             ))}
+
+            <div className="border-t border-gray-200 mt-4 pt-4">
+                {isAuthenticated ? (
+                    <button 
+                      onClick={() => {
+                          handleLogout();
+                          setIsMenuOpen(false);
+                      }}
+                      className="block w-full text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
+                    >
+                      Logout
+                    </button>
+                ) : (
+                    <Link 
+                        href="/login" 
+                        className="block w-full text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                      Join / Login
+                    </Link>
+                )}
+            </div>
           </div>
         </div>
       )}
