@@ -53,17 +53,18 @@ const Navbar = () => {
   }, [pathname, navItems]);
 
   return (
-    <nav className=" shadow-md sticky top-0 z-50">
+    <nav className=" sticky top-4 z-50 flex justify-center px-4 mb-6">
+      <div className="backdrop-blur-md bg-white/10 border border-white/20 shadow-lg rounded-full max-w-6xl w-full ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
             <Link href="/" className="shrink-0 flex items-center gap-2">
-              <span className="text-2xl font-bold text-blue-600">VitiligoConnect</span>
+              <span className="text-2xl font-bold text-purple-600">Vitiligo Support</span>
             </Link>
           </div>
           
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4 ">
             <GooeyNav 
                 items={navItems} 
                 initialActiveIndex={activeIndex}
@@ -84,7 +85,7 @@ const Navbar = () => {
                 <button className="p-2 text-gray-500 hover:text-blue-600">
                   <Search className="h-5 w-5" />
                 </button>
-                <Link href="/login" className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">
+                <Link href="/login" className="flex items-center space-x-2 bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition">
                   <User className="h-4 w-4" />
                   <span>Join / Login</span>
                 </Link>
@@ -143,6 +144,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
+      </div>
     </nav>
   );
 };

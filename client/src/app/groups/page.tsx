@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Users, Lock, Globe } from 'lucide-react';
+import FloatingLines from '@/components/FloatingLines';
 
 interface Group {
   _id: string;
@@ -83,9 +84,22 @@ export default function GroupsPage() {
 
   return (
     <div className="bg-gray-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="fixed inset-0 z-0 pointer-events-auto ">
+                      <FloatingLines
+                         enabledWaves={['top', 'middle', 'bottom']}
+                        //  linesGradient={['#A855F7', '#6366F1', '#EC4899']} 
+                        //  animationSpeed={0.3}
+                         lineDistance={[7,5,3]}
+                         bendRadius={5.0}
+                         lineCount={[6, 10, 12]} 
+                         bendStrength={-1}
+                        interactive={true}
+                        parallax={true}
+                      />
+                  </div>
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-extrabold text-gray-100 sm:text-4xl">
             Community Groups
           </h2>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
