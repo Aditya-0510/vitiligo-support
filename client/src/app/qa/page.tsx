@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { MessageSquare, ThumbsUp, Tag } from 'lucide-react';
+import FloatingLines from '@/components/FloatingLines';
 
 interface Post {
   _id: string;
@@ -83,9 +84,22 @@ export default function QAPage() {
 
   return (
     <div className="bg-gray-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="fixed inset-0 z-0 pointer-events-auto ">
+                      <FloatingLines
+                         enabledWaves={['top', 'middle', 'bottom']}
+                        //  linesGradient={['#A855F7', '#6366F1', '#EC4899']} 
+                        //  animationSpeed={0.3}
+                         lineDistance={[7,5,3]}
+                         bendRadius={5.0}
+                         lineCount={[6, 10, 12]} 
+                         bendStrength={-1}
+                        interactive={true}
+                        parallax={true}
+                      />
+                  </div>
+      <div className="relative max-w-4xl mx-auto z-10 pointer-events-none">
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-extrabold text-gray-900">Q&A Forum</h2>
+          <h2 className="text-3xl font-extrabold text-gray-100">Q&A Forum</h2>
           <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
             Ask a Question
           </button>

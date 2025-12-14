@@ -25,7 +25,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
   particleDistances = [40, 10], // Reduced distances for tighter navbar
   particleR = 50,
   timeVariance = 200,
-  colors = ['#3b82f6', '#2563eb', '#1d4ed8'], // Blue shades
+  colors = ['#a855f7', '#9333ea', '#7e22ce'], // Blue shades
   initialActiveIndex = -1, // Default to none active if not specified
   className = ''
 }) => {
@@ -176,10 +176,10 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             z-index: 10;
           }
           .effect.text {
-            color: #2563eb; /* Active text color matching blue-600 */
+            color: #9333ea; /* Active text color matching blue-600 */
             transition: color 0.3s ease;
             font-weight: 500;
-            font-size: 0.875rem; /* text-sm */
+            font-size: 0.875rem; /* text-lg */
           }
           .effect.text.active {
              /* color is set above, this class triggers the "pop" if we wanted animation */
@@ -201,7 +201,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             position: absolute;
             inset: 0 ;
             /* The pill background */
-            background: #eff6ff; /* blue-50 */
+            background: #faf5ff; /* blue-50 */
             transform: scale(0);
             opacity: 0;
             z-index: -1;
@@ -286,7 +286,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
           
           /* Nav Item Styles */
           .gooey-nav-item {
-            color: #374151; /* gray-700 */
+            color: #f3f4f6; /* gray-700 */
           }
           .gooey-nav-item.active {
             color: transparent; /* Text is hidden because the overlay with effects shows the text */
@@ -303,7 +303,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             {items.map((item, index) => (
               <li
                 key={index}
-                className={`gooey-nav-item rounded-full relative cursor-pointer px-4 py-2 text-sm font-medium transition-colors duration-300 ${
+                className={`gooey-nav-item rounded-full relative cursor-pointer px-4 py-2 text-lg  font-medium transition-colors duration-300 ${
                   activeIndex === index ? 'active' : ''
                 }`}
               >
