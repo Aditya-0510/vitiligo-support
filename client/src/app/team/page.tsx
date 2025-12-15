@@ -4,6 +4,9 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import Image, { StaticImageData } from 'next/image';
 import didiImage from '../data/didi.png';
+import haaniyaImage from '../data/Haaniya_Khan.jpg';
+import nabeelaImage from '../data/Syeda_Nabeela.jpg';
+import mubeenaImage from '../data/Mubeena_Kausar.jpg';
 import FloatingLines from '@/components/FloatingLines';
 
 interface TeamMember {
@@ -23,41 +26,71 @@ const teamMembers: TeamMember[] = [
         name: "Naila Kauser",
         title: "3rd Year MBBS Student",
         handle: "_nailakauser",
-        status: "Dermatologist",
+        status: "Medico",
         avatarImage: didiImage, // REPLACE: import and change to member1Image
         linkedinUrl: "https://linkedin.com/in/sarahjohnson",
         email: "sarah@vitiligoconnect.org",
-        bio: "Specializing in vitiligo treatment with 15+ years of experience"
+        bio: "Studying medicine, practicing empathy, one vitiligo story at a time."
     },
     {
-        name: "Michael Chen",
-        title: "Community Manager",
+        name: "Haaniya Khan",
+        title: "3rd Year MBBS Student",
         handle: "mchen",
-        status: "Mental Health Advocate",
-        avatarImage: didiImage, // REPLACE: import and change to member2Image
+        status: "Medico",
+        avatarImage: haaniyaImage, // REPLACE: import and change to member2Image
         linkedinUrl: "https://linkedin.com/in/michaelchen",
         githubUrl: "https://github.com/mchen",
         bio: "Building supportive communities for vitiligo patients worldwide"
     },
     {
-        name: "Emily Rodriguez",
-        title: "Content Director",
+        name: "Syeda Nabeela",
+        title: "3rd Year MBBS Student",
         handle: "emily_r",
-        status: "Health Writer",
-        avatarImage: didiImage, // REPLACE: import and change to member3Image
+        status: "Medico",
+        avatarImage: nabeelaImage, // REPLACE: import and change to member3Image
         linkedinUrl: "https://linkedin.com/in/emilyrodriguez",
         email: "emily@vitiligoconnect.org",
         bio: "Creating educational content to empower vitiligo community"
     },
     {
-        name: "David Kim",
-        title: "Technical Lead",
+        name: "Mubeena Lausar",
+        title: "3rd Year MBBS Student",
         handle: "dkim",
-        status: "Full Stack Developer",
-        avatarImage: didiImage, // REPLACE: import and change to member4Image
+        status: "Medico",
+        avatarImage: mubeenaImage, // REPLACE: import and change to member4Image
         linkedinUrl: "https://linkedin.com/in/davidkim",
         githubUrl: "https://github.com/davidkim",
         bio: "Building accessible platforms for health communities"
+    },
+    {
+        name: "Priya Sharma",
+        title: "Patient Advocate",
+        handle: "priya_s",
+        status: "Support Coordinator",
+        avatarImage: didiImage, // REPLACE: import and change to member5Image
+        linkedinUrl: "https://linkedin.com/in/priyasharma",
+        email: "priya@vitiligoconnect.org",
+        bio: "Connecting patients with resources and support networks"
+    },
+    {
+        name: "Priya Sharma",
+        title: "Patient Advocate",
+        handle: "priya_s",
+        status: "Support Coordinator",
+        avatarImage: didiImage, // REPLACE: import and change to member5Image
+        linkedinUrl: "https://linkedin.com/in/priyasharma",
+        email: "priya@vitiligoconnect.org",
+        bio: "Connecting patients with resources and support networks"
+    },
+    {
+        name: "Priya Sharma",
+        title: "Patient Advocate",
+        handle: "priya_s",
+        status: "Support Coordinator",
+        avatarImage: didiImage, // REPLACE: import and change to member5Image
+        linkedinUrl: "https://linkedin.com/in/priyasharma",
+        email: "priya@vitiligoconnect.org",
+        bio: "Connecting patients with resources and support networks"
     },
     {
         name: "Priya Sharma",
