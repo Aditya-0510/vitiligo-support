@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import QuickAccessCard from '@/components/QuickAccessCard';
 import FloatingLines from '@/components/FloatingLines';
-import { Brain, MessageCircle, User, LogOut } from 'lucide-react';
+import { Brain, MessageCircle, User } from 'lucide-react';
 
 export default function Dashboard() {
   const { user, loading, isAuthenticated } = useAuth();
@@ -19,7 +19,7 @@ export default function Dashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
     );
@@ -48,17 +48,31 @@ export default function Dashboard() {
       icon: Brain,
       href: '/psychologists',
       color: 'bg-purple-500',
-    }
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-gray-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+
+      {/* Background animation */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <FloatingLines
+          enabledWaves={["top", "middle", "bottom"]}
+          lineDistance={[7, 5, 3]}
+          bendRadius={5.0}
+          lineCount={[6, 10, 12]}
+          bendStrength={-1}
+          interactive={true}
+          parallax={true}
+        />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-gray-100">
             Welcome back, {user.name}!
           </h1>
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 text-gray-400">
             Here's what's happening in your community today.
           </p>
         </div>

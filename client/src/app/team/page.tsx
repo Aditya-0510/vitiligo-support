@@ -7,6 +7,7 @@ import didiImage from '../data/didi.png';
 import haaniyaImage from '../data/Haaniya_Khan.jpg';
 import nabeelaImage from '../data/Syeda_Nabeela.jpg';
 import mubeenaImage from '../data/Mubeena_Kausar.jpg';
+import aishaImage from '../data/Aisha_Anam.jpg';
 import FloatingLines from '@/components/FloatingLines';
 
 interface TeamMember {
@@ -43,6 +44,16 @@ const teamMembers: TeamMember[] = [
         bio: "Building supportive communities for vitiligo patients worldwide"
     },
     {
+        name: "Aisha Anam",
+        title: "Medico",
+        handle: "Aisha_Anam",
+        status: "Medico",
+        avatarImage: aishaImage, // REPLACE: import and change to member5Image
+        linkedinUrl: "https://linkedin.com/in/priyasharma",
+        email: "priya@vitiligoconnect.org",
+        bio: "Connecting patients with resources and support networks"
+    },
+    {
         name: "Syeda Nabeela",
         title: "3rd Year MBBS Student",
         handle: "emily_r",
@@ -53,7 +64,7 @@ const teamMembers: TeamMember[] = [
         bio: "Creating educational content to empower vitiligo community"
     },
     {
-        name: "Mubeena Lausar",
+        name: "Mubeena Kausar",
         title: "3rd Year MBBS Student",
         handle: "dkim",
         status: "Medico",
@@ -62,16 +73,7 @@ const teamMembers: TeamMember[] = [
         githubUrl: "https://github.com/davidkim",
         bio: "Building accessible platforms for health communities"
     },
-    {
-        name: "Priya Sharma",
-        title: "Patient Advocate",
-        handle: "priya_s",
-        status: "Support Coordinator",
-        avatarImage: didiImage, // REPLACE: import and change to member5Image
-        linkedinUrl: "https://linkedin.com/in/priyasharma",
-        email: "priya@vitiligoconnect.org",
-        bio: "Connecting patients with resources and support networks"
-    },
+
     {
         name: "Priya Sharma",
         title: "Patient Advocate",
