@@ -4,6 +4,7 @@ import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import QuickAccessCard from '@/components/QuickAccessCard';
+import FloatingLines from '@/components/FloatingLines';
 import { Brain, MessageCircle, User, LogOut } from 'lucide-react';
 
 export default function Dashboard() {
