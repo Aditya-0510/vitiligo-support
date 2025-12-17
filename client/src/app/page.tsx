@@ -178,11 +178,11 @@ export default function Home() {
   // Images for the FlyingPosters component
   // Using CORS-enabled image sources
   const posterItems = [
-    'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=500&fit=crop',
-    'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500&h=500&fit=crop',
-    'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&h=500&fit=crop',
-    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop',
-    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=500&fit=crop',
+    'https://miro.medium.com/v2/resize:fit:786/format:webp/1*rjBFN0BFNgZKn9gO6uXFEg.jpeg',
+    'https://fwdlife.in/wp-content/uploads/2018/05/vitiligo-1.jpg',
+    'https://cdn.shopify.com/s/files/1/0567/1865/5531/files/could-near-infrared-saunas-be-the-best-thing-for-your-skin-5.jpg',
+    'https://images.unsplash.com/photo-1694005892002-5c43b8febc2f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://www.wellahealth.com/blog/wp-content/uploads/2024/07/vitiligo-1.png'
   ];
 
   return (
