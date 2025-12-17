@@ -74,36 +74,6 @@ const teamMembers: TeamMember[] = [
         bio: "Building accessible platforms for health communities"
     },
 
-    {
-        name: "Priya Sharma",
-        title: "Patient Advocate",
-        handle: "priya_s",
-        status: "Support Coordinator",
-        avatarImage: didiImage, // REPLACE: import and change to member5Image
-        linkedinUrl: "https://linkedin.com/in/priyasharma",
-        email: "priya@vitiligoconnect.org",
-        bio: "Connecting patients with resources and support networks"
-    },
-    {
-        name: "Priya Sharma",
-        title: "Patient Advocate",
-        handle: "priya_s",
-        status: "Support Coordinator",
-        avatarImage: didiImage, // REPLACE: import and change to member5Image
-        linkedinUrl: "https://linkedin.com/in/priyasharma",
-        email: "priya@vitiligoconnect.org",
-        bio: "Connecting patients with resources and support networks"
-    },
-    {
-        name: "Priya Sharma",
-        title: "Patient Advocate",
-        handle: "priya_s",
-        status: "Support Coordinator",
-        avatarImage: didiImage, // REPLACE: import and change to member5Image
-        linkedinUrl: "https://linkedin.com/in/priyasharma",
-        email: "priya@vitiligoconnect.org",
-        bio: "Connecting patients with resources and support networks"
-    }
 ];
 
 const ProfileCard = ({ member }: { member: TeamMember }) => {

@@ -59,18 +59,18 @@ export default function Resources() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-gray-50">
       <div className="fixed inset-0 z-0 pointer-events-auto ">
-                <FloatingLines
-                   enabledWaves={['top', 'middle', 'bottom']}
-                  //  linesGradient={['#A855F7', '#6366F1', '#EC4899']} 
-                  //  animationSpeed={0.3}
-                   lineDistance={[7,5,3]}
-                   bendRadius={5.0}
-                   lineCount={[6, 10, 12]} 
-                   bendStrength={-1}
-                  interactive={true}
-                  parallax={true}
-                />
-            </div>
+        <FloatingLines
+          enabledWaves={['top', 'middle', 'bottom']}
+          //  linesGradient={['#A855F7', '#6366F1', '#EC4899']} 
+          //  animationSpeed={0.3}
+          lineDistance={[7, 5, 3]}
+          bendRadius={5.0}
+          lineCount={[6, 10, 12]}
+          bendStrength={-1}
+          interactive={true}
+          parallax={true}
+        />
+      </div>
       {/* Animated Background */}
       {/* <div className="absolute inset-0 z-0">
         <div className="absolute top-0 -left-4 w-72 h-72  rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
@@ -79,7 +79,7 @@ export default function Resources() {
       </div> */}
 
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto ">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -93,7 +93,7 @@ export default function Resources() {
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
