@@ -70,7 +70,8 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.95, x: 30 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="relative hidden lg:block"
+            // className="relative hidden lg:block"
+            className="order-last lg:order-none"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
